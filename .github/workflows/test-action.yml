@@ -28,7 +28,14 @@ jobs:
           wget https://raw.githubusercontent.com/ublue-os/packages/main/staging/devpod/devpod.spec
           wget https://raw.githubusercontent.com/ublue-os/packages/main/staging/prompt/prompt.spec
 
-      - name: Test rpmlint
+      - name: Test rpmlint (single file)
         uses: ./
         with:
           rpmfiles: ./devpod.spec
+          permissive: 'true'
+
+      - name: Test rpmlint (multiple files)
+        uses: ./
+        with:
+          rpmfiles: './devpod.spec, ./prompt.spec'
+          permissive: 'true'

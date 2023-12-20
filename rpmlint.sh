@@ -20,7 +20,7 @@ if [[ -n "${PERMISSIVE}" ]]; then ARGUMENTS+=" -p "; fi
 # Format arguments
 ARGUMENTS=$(echo "$ARGUMENTS" | xargs)
 
-# Perform rpmlint on comma-separated list of files (RPMFILES)
+# Perform rpmlint on comma-separated list of files
 if [[ -n "${RPMFILES}" ]]; then
   for FILE in $(echo "${RPMFILES}" | tr "," "\n"); do
     rpmlint $ARGUMENTS $FILE

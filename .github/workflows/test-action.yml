@@ -26,6 +26,7 @@ jobs:
       - name: Fetch spec
         run: |
           wget https://raw.githubusercontent.com/ublue-os/packages/main/staging/devpod/devpod.spec
+          wget https://raw.githubusercontent.com/ublue-os/packages/main/staging/prompt/prompt.spec
 
       - name: Test rpmlint
         uses: ./

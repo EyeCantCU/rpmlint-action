@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/EyeCantCU/rpmlint-action/compare/v0.1.1...v0.2.0) (2023-12-22)
+
+
+### Features
+
+* Lint all RPM files before exiting due to failure ([3dbf9fa](https://github.com/EyeCantCU/rpmlint-action/commit/3dbf9fa61da77e734e1368a3cd1d0308b72953e4))
+
 ## [0.1.1](https://github.com/EyeCantCU/rpmlint-action/compare/v0.1.0...v0.1.1) (2023-12-20)
 
 

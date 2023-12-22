@@ -22,9 +22,23 @@ ARGUMENTS=$(echo "$ARGUMENTS" | xargs)
 
 # Perform rpmlint on comma-separated list of files
 if [[ -n "${RPMFILES}" ]]; then
-  for FILE in $(echo "${RPMFILES}" | tr "," "\n"); do
-    rpmlint $ARGUMENTS $FILE
-  done
+  lint() {
+    RETURN_CODE=0
+    RPMLINT_STATUS=0
+    for FILE in $(echo "${RPMFILES}" | tr "," "\n"); do
+      rpmlint "$ARGUMENTS" "$FILE"
+      RPMLINT_STATUS=$?
+      echo STATUS CODE: $RPMLINT_STATUS
+      if [[ $RPMLINT_STATUS != 0 ]]; then
+        RETURN_CODE=1
+      fi
+    done
+    if $RETURN_CODE; then
+      return 1
+    fi
+  }
+  lint
+  exit $?
 else
-  rpmlint $ARGUMENTS
+  rpmlint "$ARGUMENTS"
 fi
